@@ -31,6 +31,11 @@ PlayersService = {
       Players.insert({name: names[i], score: this._randomScore()});
     }
   },
+  tryCallingMeteorWrapAsync: function(){
+    console.log( "Meteor.wrapAsync should be defined, but is not defined on the server: ");
+    console.log( Meteor.wrapAsync ); // Returns "undefined"
+    Meteor.wrapAsync( console.log )
+  },
   _randomScore: function () {
     return Math.floor(Random.fraction() * 10) * 5
   }
