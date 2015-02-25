@@ -10,6 +10,15 @@ describe('PlayersService', function () {
     MeteorStubs.uninstall();
   });
 
+  // Failing Test:
+  describe('Meteor.wrapAsync', function() {
+    it('should be available for use', function(){
+      console.log( "Meteor.wrapAsync should be defined, but is not defined on the server: ");
+      console.log( Meteor.wrapAsync ); // Returns "undefined"
+      Meteor.wrapAsync()
+    });
+  });
+
   describe('getPlayerList', function () {
     it('should ask for the players in primarily in descending score order, then in alphabetical order and return them', function () {
       var result = {};
